@@ -16,8 +16,6 @@ function onLoad(obj, scene) {
   const { x: sizeX, y: sizeY, z: sizeZ } = box.getSize(vector)
   const { x: centerX, y: centerY, z: centerZ } = box.getCenter(obj.position)
 
-  debugger
-
   obj.position.set(0, Math.abs(centerY) + sizeY / 2, 0)
 
   obj.traverse((node) => {
