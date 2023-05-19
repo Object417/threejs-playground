@@ -3,6 +3,8 @@ import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader"
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader"
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader"
 
+import m4a1Url from "/src/models/M4A1/M4A1.obj?url"
+
 const loader = new OBJLoader()
 // silver 0xa8a9ad
 const material = new MeshPhongMaterial({ color: 0x444444, specular: 0xffffff })
@@ -33,7 +35,7 @@ function onProgress(e) {}
 function onError(e) {}
 
 async function loadM4A1(scene) {
-  loader.load("/src/models/M4A1/M4A1.obj", (obj) => onLoad(obj, scene))
+  loader.load(m4a1Url, (obj) => onLoad(obj, scene))
 }
 
 export { loadM4A1 }
