@@ -11,6 +11,7 @@ import pointLight, { pointLightHelper } from "./components/pointLight"
 
 import platform from "./components/models/platform"
 import { loadM4A1 } from "./components/models/m4a1"
+import { loadVandal } from "./components/models/vandal"
 
 const $container = document.getElementById("three-container")
 $container.appendChild(renderer.domElement)
@@ -19,14 +20,15 @@ $container.appendChild(renderer.domElement)
 scene.add(ambientLight)
 scene.add(sunlight)
 scene.add(sunlightHelper)
-scene.add(pointLight)
-scene.add(pointLightHelper)
+// scene.add(pointLight)
+// scene.add(pointLightHelper)
 
 // #platform
 scene.add(platform)
 
 // #objects
 loadM4A1(scene)
+loadVandal(scene)
 
 // #animate
 animate()
