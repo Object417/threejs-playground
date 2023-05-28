@@ -1,0 +1,13 @@
+"workshop preview"
+{
+	"style"		"1"
+	"color0"		"47 52 37"
+	"color1"		"65 78 61"
+	"color2"		"102 91 66"
+	"color3"		"51 53 26"
+	"phongexponent"		"16"
+	"phongintensity"		"13"
+	"wear_remap_min"		"0.06"
+	"wear_remap_max"		"0.80"
+	"dialog_config"		"12,0,0,1"
+}

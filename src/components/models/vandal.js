@@ -12,9 +12,9 @@ function onLoad({ scene: obj }, scene) {
   const { x: sizeX, y: sizeY, z: sizeZ } = box.getSize(vector)
   const { x: centerX, y: centerY, z: centerZ } = box.getCenter(obj.position)
 
-  // debugger
+  debugger
 
-  obj.position.set(centerX / 2 + 5 * sizeX, (sizeY - centerY) / 2, centerZ / 2)
+  // obj.position.set(centerX / 2 + 5 * sizeX, (sizeY - centerY) / 2, centerZ / 2)
 
   obj.traverse((node) => {
     if (node.isMesh) {
