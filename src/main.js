@@ -14,15 +14,8 @@ import pointLight, { pointLightHelper } from "./components/pointLight"
 
 import platform from "./components/models/platform"
 import { loadM4A1 } from "./components/models/m4a1"
-import { loadVandal } from "./components/models/vandal"
 import { loadAug } from "./components/models/aug"
 import { loadAk } from "./components/models/ak"
-
-import akTexture from "/src/models/workbench_materials/UVSheets/ak-47.tga?url"
-import akAsiimov from "/src/models/ak47-cs2/textures/ak47_asiimov.jpg"
-import akLotus from "/src/models/csgo-ak47-wild-lotus/source/AK47-WILDLOTUS/ak_island_floral.tga?url"
-import akBloodsport from "/src/models/ak47-cs2/textures/gs_ak47_bloodsport.jpg"
-import akVulcan from "/src/models/ak47-cs2/textures/ak47_vulcan.jpg"
 
 const $container = document.getElementById("three-container")
 $container.appendChild(renderer.domElement)
@@ -38,11 +31,10 @@ scene.add(sunlightHelper)
 scene.add(platform)
 
 // #objects
-// loadM4A1(scene)
-// loadVandal(scene)
-// loadAug(scene)
+loadM4A1(scene)
+loadAug(scene)
 loadAk().then((obj) => {
-  obj.scale.set(0.02, 0.02, 0.02)
+  obj.scale.set(0.015, 0.015, 0.015)
 
   // fixes incorrect model position
   // obj.children[0].geometry.center()
@@ -53,7 +45,8 @@ loadAk().then((obj) => {
   const { x: sizeX, y: sizeY, z: sizeZ } = box.getSize(vector)
   const { x: centerX, y: centerY, z: centerZ } = box.getCenter(obj.position)
 
-  obj.position.set(0, (sizeY - centerY) / 2, 0)
+  obj.position.set(30, (sizeY - centerY) / 2, 0)
+  obj.rotation.y = Math.PI
   // obj.children[0].position.set(0, 0, 0)
 
   obj.traverse((node) => {
@@ -63,17 +56,11 @@ loadAk().then((obj) => {
     }
   })
 
-  const asiimovTexture = new TextureLoader().load(akAsiimov)
-  const vulcanTexture = new TextureLoader().load(akVulcan)
-  const bloodsportTexture = new TextureLoader().load(akBloodsport)
-  const lotusTexture = new TGALoader().load(akLotus)
-
   loopChildren(obj.children)
   function loopChildren(children) {
     for (const node of children) {
       if (node.isMesh) {
         node.geometry.center()
-        node.material.map = vulcanTexture
         return
       } else {
         if (node.children.length !== 0) {
@@ -83,14 +70,7 @@ loadAk().then((obj) => {
     }
   }
 
-  // obj.children[0].material.map = akLotus
-
-  // const texture = new TGALoader().load(akTexture)
-  // obj.children[0].material.map = lotusTexture
-
   scene.add(obj)
-
-  debugger
 })
 
 // #animate

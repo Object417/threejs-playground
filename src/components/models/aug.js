@@ -12,11 +12,13 @@ function loadAug(scene) {
     const { x: sizeX, y: sizeY, z: sizeZ } = box.getSize(vector)
     const { x: centerX, y: centerY, z: centerZ } = box.getCenter(obj.position)
 
-    obj.position.set(0, (sizeY - centerY) / 2, 0)
+    obj.position.set(15, (sizeY - centerY) / 2, 0)
+    obj.rotation.y = Math.PI
 
     obj.traverse((node) => {
       if (node.isMesh) {
         node.castShadow = true
+        node.receiveShadow = true
       }
     })
 

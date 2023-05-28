@@ -27,6 +27,8 @@ const material = new MeshPhongMaterial({
 })
 
 function onLoad(obj, scene) {
+  obj.scale.set(2, 2, 2)
+
   const box = new Box3().setFromObject(obj)
   const vector = new Vector3()
 
@@ -39,7 +41,8 @@ function onLoad(obj, scene) {
   obj.traverse((node) => {
     if (node.isMesh) {
       node.castShadow = true
-      // node.material = material
+      node.receiveShadow = true
+      node.material = material
 
       $controls.innerHTML += `
         <div>
